@@ -13,7 +13,7 @@ config_version=5
 config/name="Protect The Great Forge"
 run/main_scene="res://scenes/playground.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/icons/the_great_forge-BIG_ICON.png"
 
 [autoload]
 
