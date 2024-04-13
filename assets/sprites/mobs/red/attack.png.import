@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvtyvvd88cebx"
-path="res://.godot/imported/idle.png-2cb965df3e6a5f0b5f636e7c2da3ca19.ctex"
+uid="uid://cgbdtlwbuo4oi"
+path="res://.godot/imported/attack.png-a862a7682383eb090353752998ba326e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player/idle.png"
-dest_files=["res://.godot/imported/idle.png-2cb965df3e6a5f0b5f636e7c2da3ca19.ctex"]
+source_file="res://assets/sprites/mobs/red/attack.png"
+dest_files=["res://.godot/imported/attack.png-a862a7682383eb090353752998ba326e.ctex"]
 
 [params]
 

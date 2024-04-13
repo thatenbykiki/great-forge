@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvtyvvd88cebx"
-path="res://.godot/imported/idle.png-2cb965df3e6a5f0b5f636e7c2da3ca19.ctex"
+uid="uid://cmaps35hbby2c"
+path="res://.godot/imported/Yellow Knight standby Sprite-sheet 16x16.png-260b8df5a61a81d3620c03e26c136d5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player/idle.png"
-dest_files=["res://.godot/imported/idle.png-2cb965df3e6a5f0b5f636e7c2da3ca19.ctex"]
+source_file="res://assets/sprites/mobs/yellow/Yellow Knight standby Sprite-sheet 16x16.png"
+dest_files=["res://.godot/imported/Yellow Knight standby Sprite-sheet 16x16.png-260b8df5a61a81d3620c03e26c136d5b.ctex"]
 
 [params]
 

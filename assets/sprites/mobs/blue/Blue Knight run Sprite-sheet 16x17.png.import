@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvtyvvd88cebx"
-path="res://.godot/imported/idle.png-2cb965df3e6a5f0b5f636e7c2da3ca19.ctex"
+uid="uid://btekjh1j70r5"
+path="res://.godot/imported/Blue Knight run Sprite-sheet 16x17.png-e0165acaa7e2b43745bdce4cf8b2f788.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player/idle.png"
-dest_files=["res://.godot/imported/idle.png-2cb965df3e6a5f0b5f636e7c2da3ca19.ctex"]
+source_file="res://assets/sprites/mobs/blue/Blue Knight run Sprite-sheet 16x17.png"
+dest_files=["res://.godot/imported/Blue Knight run Sprite-sheet 16x17.png-e0165acaa7e2b43745bdce4cf8b2f788.ctex"]
 
 [params]
 
