@@ -5,6 +5,8 @@ class_name Mob
 @onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var hitArea = $hitArea
+@onready var atkPivot = $WeaponPivot
+@onready var atkArea = $WeaponPivot/AtkArea
 
 @export var health := 3
 @export var debug : bool
@@ -25,6 +27,7 @@ func _physics_process(delta):
 	var direction =  global_position.direction_to(player.global_position)
 	velocity = direction * speed
 	_facing()
+	_rotate_atk_col()
 	update_anim()
 	move_and_slide()
 	
@@ -37,6 +40,8 @@ func _debug():
 	print("========( M O B )========")
 	print("FACE: " + str(_face))
 	print("HEALTH: " + str(health))
+	print("VEL: " + str(get_real_velocity().normalized()))
+
 
 func _facing():
 	var _real_velocity = get_real_velocity().normalized()
@@ -51,11 +56,22 @@ func _facing():
 		_face = "RIGHT"
 
 
+func _rotate_atk_col():
+	if _face == "DOWN":
+		atkPivot.rotation_degrees = 0
+	if _face == "UP":
+		atkPivot.rotation_degrees = 180
+	if _face == "LEFT":
+		atkPivot.rotation_degrees = 90
+	if _face == "RIGHT":
+		atkPivot.rotation_degrees = 270
+
+
 func take_damage(dmg_amount):
+	health -= dmg_amount
+	
 	if health <= 0:
 		die()
-	else:
-		health -= dmg_amount
 	
 
 func die():

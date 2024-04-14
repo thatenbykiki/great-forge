@@ -33,7 +33,7 @@ offset_right = -206.0
 offset_bottom = 38.0
 
 [node name="RedKnight" parent="." instance=ExtResource("4_yoawg")]
-position = Vector2(129, 205)
+position = Vector2(90, 257)
 
 [node name="RedKnight2" parent="." instance=ExtResource("4_yoawg")]
-position = Vector2(235, 206)
+position = Vector2(313, 141)
