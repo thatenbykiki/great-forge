@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bkbkvdn1d2jyo"]
 
 [ext_resource type="Script" path="res://scenes/interactables/mob.gd" id="1_gjeuc"]
-[ext_resource type="Texture2D" uid="uid://cbb3cjl46abbl" path="res://assets/sprites/mobs/red/run.png" id="2_tegow"]
+[ext_resource type="Texture2D" uid="uid://cvtyvvd88cebx" path="res://assets/sprites/player/idle.png" id="2_adlv8"]
 [ext_resource type="AnimationLibrary" uid="uid://belrgn1vxexft" path="res://scenes/CharEntityAnim.res" id="3_3g8dk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eqgan"]
@@ -23,13 +23,11 @@ wall_min_slide_angle = 0.0
 platform_on_leave = 2
 safe_margin = 1.0
 script = ExtResource("1_gjeuc")
-debug = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_tegow")
+texture = ExtResource("2_adlv8")
 hframes = 8
 vframes = 4
-frame = 16
 
 [node name="AggroArea" type="Area2D" parent="."]
 monitorable = false

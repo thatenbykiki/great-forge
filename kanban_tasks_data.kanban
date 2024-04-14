@@ -17,7 +17,8 @@
 				"6c1d4551-e972-4d14-b914-f6166ccb9253",
 				"91c59165-a233-4d57-b387-dcb32b97e0ac",
 				"1b3bf1df-fc85-4808-9077-29a365056491",
-				"df8d7f58-b798-40ed-99c3-14358612a8e4"
+				"df8d7f58-b798-40ed-99c3-14358612a8e4",
+				"861e6950-c079-43bc-a81c-928337293c9f"
 			]
 		},
 		{
@@ -77,6 +78,13 @@
 		{
 			"uuid": "df8d7f58-b798-40ed-99c3-14358612a8e4",
 			"title": "Windfury/Cyclone/BladeDance : Relics",
+			"description": "",
+			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
+			"steps": []
+		},
+		{
+			"uuid": "861e6950-c079-43bc-a81c-928337293c9f",
+			"title": "Fix enemy _face bug",
 			"description": "",
 			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
 			"steps": []

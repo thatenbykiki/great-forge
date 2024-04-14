@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://y60p28dagtsd"]
+
+[ext_resource type="Script" path="res://scripts/CharEntity.gd" id="1_0kysj"]
+[ext_resource type="AnimationLibrary" uid="uid://belrgn1vxexft" path="res://scenes/CharEntityAnim.res" id="2_1rx5h"]
+[ext_resource type="Texture2D" uid="uid://cvtyvvd88cebx" path="res://assets/sprites/player/idle.png" id="3_3xa52"]
+[ext_resource type="Shape2D" uid="uid://ytaf3m54vfqa" path="res://scenes/16x16_capsule.tres" id="4_vhkk4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o0gol"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y262n"]
+radius = 24.9999
+height = 83.3328
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 7
+slide_on_ceiling = false
+platform_on_leave = 2
+platform_floor_layers = 4294967041
+safe_margin = 1.0
+script = ExtResource("1_0kysj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": ExtResource("2_1rx5h")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_3xa52")
+hframes = 8
+vframes = 4
+
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_o0gol")
+debug_color = Color(0.607843, 0.0745098, 0.403922, 0.419608)
+
+[node name="ColShp" type="CollisionShape2D" parent="."]
+scale = Vector2(0.480002, 0.480002)
+shape = ExtResource("4_vhkk4")
+debug_color = Color(0.835294, 0.32549, 0.2, 0.419608)
+
+[node name="AttackTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.45
+one_shot = true
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+rotation = 1.5708
+
+[node name="AtkArea" type="Area2D" parent="WeaponPivot" groups=["atkArea"]]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponPivot/AtkArea"]
+position = Vector2(-1.81899e-12, 12)
+rotation = 1.57079
+scale = Vector2(0.240001, 0.240001)
+shape = SubResource("CapsuleShape2D_y262n")
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timeout"]
+[connection signal="area_entered" from="WeaponPivot/AtkArea" to="." method="_on_atk_area_entered"]
