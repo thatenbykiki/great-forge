@@ -1,109 +1,96 @@
 extends CharacterBody2D
 class_name Player
 
-@export var is_player : bool
-@export_enum("PLAYER", "RED", "GREEN", "BLUE", "YELLOW") var character: String
-
 @onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var atkTimer = $AttackTimer
 @onready var atkPivot = $WeaponPivot
+@onready var atkArea = $WeaponPivot/AtkArea
+
+@export var debug := false
 
 var player_speed : float
-var mob_speed = player_speed - 10.0
+var dmg_rate = 1.0
 const BASE_SPEED := 75.0
 
 var lastMove := Vector2.ZERO
 
-var idling := false
-var attacking := false
-var blocking := false
-var hit := false
+var is_idle := false
+var is_attacking := false
+var is_blocking := false
+var is_hit := false
 
-var sprite_idle
-var sprite_run
-var sprite_attack
-var sprite_block
-var sprite_hit
+var sprite_idle = preload("res://assets/sprites/player/idle.png")
+var sprite_run = preload("res://assets/sprites/player/run.png")
+var sprite_attack = preload("res://assets/sprites/player/attack1.png")
+var sprite_block = preload("res://assets/sprites/player/block.png")
+var sprite_hit = preload("res://assets/sprites/player/hit.png")
 
 var _face : String
 
+signal attacking
+
 func _ready():
-	set_input()
-	set_sprites()
 	sprite.texture = sprite_idle
 	anim.play("IDLE_DOWN")
 	atkTimer.timeout.connect(_on_attack_timeout)
+	atkArea.area_entered.connect(_on_atk_area_entered)
+	
+
 
 func _physics_process(delta):
-	if is_player:
 		inputHandler()
 		_facing()
 		_rotate_atk_col()
 		move_and_slide()
 		update_anim()
-		_debug()
-	if !is_player:
-		_facing()
-		_rotate_atk_col()
-		update_anim()
+		
+		if debug:
+			_debug()
+		else:
+			pass
+
 
 func _debug():
-	print("Attacking: " + str(attacking))
-	print("Blocking: " + str(blocking))
-	print("HIT: " + str(hit))
+	print("Attacking: " + str(is_attacking))
+	print("Blocking: " + str(is_blocking))
+	print("HIT: " + str(is_hit))
+	print("FACING: " + str(_face))
 
-func set_sprites():
-	if is_player:
-		sprite_idle = preload("res://assets/sprites/player/idle.png")
-		sprite_run = preload("res://assets/sprites/player/run.png")
-		sprite_attack = preload("res://assets/sprites/player/attack1.png")
-		sprite_block = preload("res://assets/sprites/player/block.png")
-		sprite_hit = preload("res://assets/sprites/player/hit.png")
-	elif !is_player:
-		if character == "RED":
-			sprite_idle = preload("res://assets/sprites/mobs/red/idle.png")
-			sprite_run = preload("res://assets/sprites/mobs/red/run.png")
-			sprite_attack = preload("res://assets/sprites/mobs/red/attack.png")
-			sprite_hit = preload("res://assets/sprites/mobs/red/hit.png")
-		if character == "GREEN":
-			pass
-		if character == "BLUE":
-			pass
-		if character == "YELLOW":
-			pass
-
-func set_input():
-	if is_player:
-		set_process_input(true)
-	if !is_player:
-		set_process_input(false)
 
 func inputHandler():
-	set_input()
-	
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * player_speed
 	
 	if Input.is_action_just_pressed("attack"):
-		attacking = true
 		attack()
 	
 	if Input.is_action_pressed("block"):
-		blocking = true
+		is_blocking = true
 		player_speed = BASE_SPEED / 5
 	elif Input.is_action_just_released("block"):
-		blocking = false
+		is_blocking = false
 		player_speed = BASE_SPEED
 
+
 func attack():
+	var overlapping_objects = atkArea.get_overlapping_areas()
+	
+	for area in overlapping_objects:
+		var parent = area.get_parent()
+		parent.take_damage(dmg_rate)
+	
+	is_attacking = true
+	emit_signal("attacking")
 	sprite.texture = sprite_attack
 	atkTimer.start()
 	player_speed = 0
+	update_anim()
 	set_process_input(false)
 
+
 func _facing():
-	var _real_velocity = get_real_velocity()
+	var _real_velocity = get_real_velocity().normalized()
 	
 	if  _real_velocity.y > 0.0:
 		_face = "DOWN"
@@ -114,6 +101,7 @@ func _facing():
 	if _real_velocity.x > 0.0:
 		_face = "RIGHT"
 
+
 func _rotate_atk_col():
 	if _face == "DOWN":
 		atkPivot.rotation_degrees = 0
@@ -123,11 +111,12 @@ func _rotate_atk_col():
 		atkPivot.rotation_degrees = 90
 	if _face == "RIGHT":
 		atkPivot.rotation_degrees = 270
-	
+
+
 func update_anim(): # Thanks to: thefinaldegreee, AnomAlison & Kas from GWJ discord!
 	var _anim_name : String
 	
-	if !attacking && !blocking:
+	if !is_attacking && !is_blocking:
 		sprite.texture = sprite_idle
 		if velocity.is_zero_approx() && lastMove.y > 0.0:
 		# if velocity.y >= 0 && lastMove.is_equal_approx(Vector2(0, 1)):
@@ -158,7 +147,7 @@ func update_anim(): # Thanks to: thefinaldegreee, AnomAlison & Kas from GWJ disc
 		elif velocity.y < 0:
 			sprite.texture = sprite_run
 			_anim_name = "RUN_UP"
-	elif attacking && !blocking:
+	elif is_attacking && !is_blocking:
 		sprite.texture = sprite_attack
 		if _face == "DOWN":
 			_anim_name = "ATTACK_DOWN"
@@ -168,7 +157,7 @@ func update_anim(): # Thanks to: thefinaldegreee, AnomAlison & Kas from GWJ disc
 			_anim_name = "ATTACK_LEFT-RIGHT"
 		elif _face == "RIGHT":
 			_anim_name = "ATTACK_LEFT-RIGHT"
-	elif !attacking && blocking:
+	elif !is_attacking && is_blocking:
 		sprite.texture = sprite_block
 		if _face == "DOWN":
 			_anim_name = "BLOCK_DOWN"
@@ -180,7 +169,7 @@ func update_anim(): # Thanks to: thefinaldegreee, AnomAlison & Kas from GWJ disc
 		elif _face == "RIGHT":
 			sprite.flip_h = true
 			_anim_name = "BLOCK_LEFT-RIGHT"
-	elif hit:
+	elif is_hit:
 		sprite.texture = sprite_hit
 		if _face == "DOWN":
 			_anim_name = "HIT_DOWN"
@@ -196,7 +185,12 @@ func update_anim(): # Thanks to: thefinaldegreee, AnomAlison & Kas from GWJ disc
 			
 	lastMove = get_last_motion().normalized()
 
+
 func _on_attack_timeout():
 	set_process_input(true)
 	player_speed = BASE_SPEED
-	attacking = false
+	is_attacking = false
+
+
+func _on_atk_area_entered(area):
+	pass

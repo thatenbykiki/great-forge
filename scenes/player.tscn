@@ -15,10 +15,12 @@ height = 83.3328
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 7
+slide_on_ceiling = false
+platform_on_leave = 2
+platform_floor_layers = 4294967041
+safe_margin = 1.0
 script = ExtResource("1_0kysj")
-is_player = true
-character = "PLAYER"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -47,7 +49,8 @@ one_shot = true
 [node name="WeaponPivot" type="Marker2D" parent="."]
 rotation = 1.5708
 
-[node name="AtkArea" type="Area2D" parent="WeaponPivot"]
+[node name="AtkArea" type="Area2D" parent="WeaponPivot" groups=["atkArea"]]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponPivot/AtkArea"]
 position = Vector2(-1.81899e-12, 12)
@@ -56,3 +59,4 @@ scale = Vector2(0.240001, 0.240001)
 shape = SubResource("CapsuleShape2D_y262n")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timeout"]
+[connection signal="area_entered" from="WeaponPivot/AtkArea" to="." method="_on_atk_area_entered"]

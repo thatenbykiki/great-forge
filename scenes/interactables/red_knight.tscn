@@ -1,26 +1,40 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkbkvdn1d2jyo"]
+[gd_scene load_steps=7 format=3 uid="uid://bkbkvdn1d2jyo"]
 
 [ext_resource type="Script" path="res://scenes/interactables/mob.gd" id="1_gjeuc"]
 [ext_resource type="Texture2D" uid="uid://cvtyvvd88cebx" path="res://assets/sprites/player/idle.png" id="2_adlv8"]
 [ext_resource type="AnimationLibrary" uid="uid://belrgn1vxexft" path="res://scenes/CharEntityAnim.res" id="3_3g8dk"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_52lyd"]
-radius = 6.0
-height = 16.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_eqgan"]
+radius = 55.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hx6cx"]
 radius = 4.0
 height = 14.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gc1g6"]
+radius = 6.0
+height = 18.0
+
 [node name="RedKnight" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 7
+motion_mode = 1
+wall_min_slide_angle = 0.0
+platform_on_leave = 2
+safe_margin = 1.0
 script = ExtResource("1_gjeuc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_adlv8")
 hframes = 8
 vframes = 4
+
+[node name="AggroArea" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea"]
+shape = SubResource("CircleShape2D_eqgan")
+debug_color = Color(0.568627, 0.552941, 0.172549, 0.419608)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -29,12 +43,14 @@ libraries = {
 
 [node name="AttackTimer" type="Timer" parent="."]
 
-[node name="Hurtbox" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_52lyd")
-debug_color = Color(0.609322, 0.074618, 0.402729, 0.42)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_hx6cx")
 debug_color = Color(0.835294, 0.32549, 0.2, 0.419608)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CapsuleShape2D_gc1g6")
+debug_color = Color(0.609322, 0.074618, 0.402729, 0.42)
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timeout"]

@@ -49,7 +49,7 @@
 		{
 			"uuid": "2f6c2dd1-395e-4a0e-ac4a-e1015467ab39",
 			"title": "Enemy Collision",
-			"description": "Fix bug with top and bottom collisions",
+			"description": "Fix bug with atkArea collision shape randomly flipping",
 			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
 			"steps": []
 		},
