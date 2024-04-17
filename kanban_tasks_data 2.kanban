@@ -1,0 +1,106 @@
+{
+	"categories": [
+		{
+			"uuid": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
+			"title": "Task",
+			"color": "70bafa"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "231291c5-0188-401d-846c-dd5b934b21bc",
+			"title": "Todo",
+			"tasks": [
+				"3d75a12c-28d3-44d0-97d0-4d90ca89e3ec",
+				"22073fba-8125-4c45-bfc4-f8072c3ba35d",
+				"2f6c2dd1-395e-4a0e-ac4a-e1015467ab39",
+				"6c1d4551-e972-4d14-b914-f6166ccb9253",
+				"91c59165-a233-4d57-b387-dcb32b97e0ac",
+				"1b3bf1df-fc85-4808-9077-29a365056491",
+				"df8d7f58-b798-40ed-99c3-14358612a8e4",
+				"861e6950-c079-43bc-a81c-928337293c9f"
+			]
+		},
+		{
+			"uuid": "7940c3b1-c89b-4661-9594-250e7c2915b7",
+			"title": "Doing",
+			"tasks": []
+		},
+		{
+			"uuid": "68f4c0f2-0e9a-432c-9582-4bb344d2ae67",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "3d75a12c-28d3-44d0-97d0-4d90ca89e3ec",
+			"title": "Fix animation issues with controller",
+			"description": "",
+			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
+			"steps": []
+		},
+		{
+			"uuid": "22073fba-8125-4c45-bfc4-f8072c3ba35d",
+			"title": "Currency",
+			"description": "",
+			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
+			"steps": []
+		},
+		{
+			"uuid": "2f6c2dd1-395e-4a0e-ac4a-e1015467ab39",
+			"title": "Enemy Collision",
+			"description": "Fix bug with atkArea collision shape randomly flipping",
+			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
+			"steps": []
+		},
+		{
+			"uuid": "6c1d4551-e972-4d14-b914-f6166ccb9253",
+			"title": "Upgrade System",
+			"description": "",
+			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
+			"steps": []
+		},
+		{
+			"uuid": "91c59165-a233-4d57-b387-dcb32b97e0ac",
+			"title": "Level Map",
+			"description": "Tilemap, TileSet, physics collision",
+			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
+			"steps": []
+		},
+		{
+			"uuid": "1b3bf1df-fc85-4808-9077-29a365056491",
+			"title": "Healthbar/Heartbar",
+			"description": "Attach to player",
+			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
+			"steps": []
+		},
+		{
+			"uuid": "df8d7f58-b798-40ed-99c3-14358612a8e4",
+			"title": "Windfury/Cyclone/BladeDance : Relics",
+			"description": "",
+			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
+			"steps": []
+		},
+		{
+			"uuid": "861e6950-c079-43bc-a81c-928337293c9f",
+			"title": "Fix enemy _face bug",
+			"description": "",
+			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"231291c5-0188-401d-846c-dd5b934b21bc"
+			],
+			[
+				"7940c3b1-c89b-4661-9594-250e7c2915b7"
+			],
+			[
+				"68f4c0f2-0e9a-432c-9582-4bb344d2ae67"
+			]
+		]
+	}
+}
