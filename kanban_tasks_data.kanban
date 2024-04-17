@@ -1,105 +1,115 @@
 {
 	"categories": [
 		{
-			"uuid": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
+			"uuid": "a15610a5-ce84-436d-9433-2f52b5c09443",
 			"title": "Task",
 			"color": "70bafa"
 		}
 	],
 	"stages": [
 		{
-			"uuid": "231291c5-0188-401d-846c-dd5b934b21bc",
+			"uuid": "3a33ad4f-54cc-4267-a448-ee1ddd1043ac",
 			"title": "Todo",
 			"tasks": [
-				"3d75a12c-28d3-44d0-97d0-4d90ca89e3ec",
-				"22073fba-8125-4c45-bfc4-f8072c3ba35d",
-				"2f6c2dd1-395e-4a0e-ac4a-e1015467ab39",
-				"6c1d4551-e972-4d14-b914-f6166ccb9253",
-				"91c59165-a233-4d57-b387-dcb32b97e0ac",
-				"1b3bf1df-fc85-4808-9077-29a365056491",
-				"df8d7f58-b798-40ed-99c3-14358612a8e4",
-				"861e6950-c079-43bc-a81c-928337293c9f"
+				"5fd56990-83f9-4d67-a79f-05fe970d2c31",
+				"2d9d6579-1522-4804-b1c7-0d8d34618faa",
+				"713dbe4b-ebe8-4874-8ac4-9dfd9f4b3bd9",
+				"f61f7523-8a39-45e7-be4f-371f77a457ba",
+				"ff73d48d-0db0-4519-9699-c0bdaa907d93"
 			]
 		},
 		{
-			"uuid": "7940c3b1-c89b-4661-9594-250e7c2915b7",
+			"uuid": "1034fdc5-7e37-44a0-88d9-1218616fa7a0",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"7314f4b2-cf20-4981-87f7-c204b3aac8b2",
+				"4904a162-38f8-40e9-87af-9b24e7f8cada",
+				"95e56586-c162-4510-8819-d7af3364eb53"
+			]
 		},
 		{
-			"uuid": "68f4c0f2-0e9a-432c-9582-4bb344d2ae67",
+			"uuid": "10be5e17-dffc-45e3-9565-b479206f3338",
 			"title": "Done",
-			"tasks": []
+			"tasks": [
+				"637b36e6-c4ae-4758-b4cb-4623e442a154"
+			]
 		}
 	],
 	"tasks": [
 		{
-			"uuid": "3d75a12c-28d3-44d0-97d0-4d90ca89e3ec",
-			"title": "Fix animation issues with controller",
+			"uuid": "95e56586-c162-4510-8819-d7af3364eb53",
+			"title": "TODO: Upgrade system after each wave",
 			"description": "",
-			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
+			"category": "a15610a5-ce84-436d-9433-2f52b5c09443",
 			"steps": []
 		},
 		{
-			"uuid": "22073fba-8125-4c45-bfc4-f8072c3ba35d",
-			"title": "Currency",
+			"uuid": "5fd56990-83f9-4d67-a79f-05fe970d2c31",
+			"title": "TODO : Relic to choose at beginning of run",
 			"description": "",
-			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
+			"category": "a15610a5-ce84-436d-9433-2f52b5c09443",
 			"steps": []
 		},
 		{
-			"uuid": "2f6c2dd1-395e-4a0e-ac4a-e1015467ab39",
-			"title": "Enemy Collision",
-			"description": "Fix bug with atkArea collision shape randomly flipping",
-			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
-			"steps": []
-		},
-		{
-			"uuid": "6c1d4551-e972-4d14-b914-f6166ccb9253",
-			"title": "Upgrade System",
+			"uuid": "ff73d48d-0db0-4519-9699-c0bdaa907d93",
+			"title": "JUICE : Varied level design",
 			"description": "",
-			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
+			"category": "a15610a5-ce84-436d-9433-2f52b5c09443",
 			"steps": []
 		},
 		{
-			"uuid": "91c59165-a233-4d57-b387-dcb32b97e0ac",
-			"title": "Level Map",
-			"description": "Tilemap, TileSet, physics collision",
-			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
-			"steps": []
-		},
-		{
-			"uuid": "1b3bf1df-fc85-4808-9077-29a365056491",
-			"title": "Healthbar/Heartbar",
-			"description": "Attach to player",
-			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
-			"steps": []
-		},
-		{
-			"uuid": "df8d7f58-b798-40ed-99c3-14358612a8e4",
-			"title": "Windfury/Cyclone/BladeDance : Relics",
+			"uuid": "2d9d6579-1522-4804-b1c7-0d8d34618faa",
+			"title": "TODO : Intro and Outro",
 			"description": "",
-			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
+			"category": "a15610a5-ce84-436d-9433-2f52b5c09443",
 			"steps": []
 		},
 		{
-			"uuid": "861e6950-c079-43bc-a81c-928337293c9f",
-			"title": "Fix enemy _face bug",
+			"uuid": "713dbe4b-ebe8-4874-8ac4-9dfd9f4b3bd9",
+			"title": "TODO : SFX for Powerups",
 			"description": "",
-			"category": "c024c6b1-3b56-4630-b6d8-d84bb05e5ba7",
+			"category": "a15610a5-ce84-436d-9433-2f52b5c09443",
+			"steps": []
+		},
+		{
+			"uuid": "f61f7523-8a39-45e7-be4f-371f77a457ba",
+			"title": "TODO : Visual for Powerups",
+			"description": "",
+			"category": "a15610a5-ce84-436d-9433-2f52b5c09443",
+			"steps": []
+		},
+		{
+			"uuid": "637b36e6-c4ae-4758-b4cb-4623e442a154",
+			"title": "!!! PLAYER NEEDS TO DIE",
+			"description": "",
+			"category": "a15610a5-ce84-436d-9433-2f52b5c09443",
+			"steps": []
+		},
+		{
+			"uuid": "4904a162-38f8-40e9-87af-9b24e7f8cada",
+			"title": "FIX : DONT START WAVE TIMER UNTIL UPGRADE PICKED",
+			"description": "",
+			"category": "a15610a5-ce84-436d-9433-2f52b5c09443",
+			"steps": []
+		},
+		{
+			"uuid": "7314f4b2-cf20-4981-87f7-c204b3aac8b2",
+			"title": "FIX : Game Over sequence not right",
+			"description": "Nigel here! You set new variables when implementing the wave system and they need to be included in the functoins that handle your new game and game reset. ",
+			"category": "a15610a5-ce84-436d-9433-2f52b5c09443",
 			"steps": []
 		}
 	],
 	"layout": {
 		"columns": [
 			[
-				"231291c5-0188-401d-846c-dd5b934b21bc"
+				"3a33ad4f-54cc-4267-a448-ee1ddd1043ac"
 			],
 			[
-				"7940c3b1-c89b-4661-9594-250e7c2915b7"
+				"1034fdc5-7e37-44a0-88d9-1218616fa7a0"
 			],
 			[
-				"68f4c0f2-0e9a-432c-9582-4bb344d2ae67"
+				"10be5e17-dffc-45e3-9565-b479206f3338"
 			]
 		]
 	}
